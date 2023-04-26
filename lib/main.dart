@@ -15,6 +15,28 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.green,
           title: const Text('Flutter is fun!'),
         ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            print('pressed!');
+          },
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.business),
+                label: 'Business',
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.school),
+                label: 'School',
+            ),
+          ],
+        ),
         body: Stack(
           children: [
             Container(
