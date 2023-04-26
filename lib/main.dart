@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp( MyApp() );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,20 +14,18 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: const Text('Flutter is fun!'),
-          ),
-        body: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                Expanded(
-                  flex: 4,
-                  child: Icon(Icons.backpack),
-                ),
-                Icon(Icons.leaderboard),
-                Icon(Icons.abc),
-              ],
-            ),
         ),
-      );
+        body: Stack(
+          children: [
+            Container(
+              color: Colors.amber,
+              width: 100,
+              height: 100,
+            ),
+            const Icon(Icons.verified)
+          ],
+        ),
+      ),
+    );
   }
 }
