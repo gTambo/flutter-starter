@@ -24,16 +24,18 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.amber,
         title: const Text('Flutter is fun!'),
       ),
-      body: ElevatedButton(
-        child: const Text('Navigate'),
-        onPressed: () {
-          Navigator.push(
-            context, 
-            MaterialPageRoute(
-              builder: (_) => const AboutScreen(),
-            ),
-          );
-        },
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Navigate'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const AboutScreen(),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -47,6 +49,14 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('about'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          }, 
+          child: const Text('Go Back!'),
+        ),
       ),
     );
   }
