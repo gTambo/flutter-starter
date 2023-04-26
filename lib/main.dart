@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+// import 'dart:math';
 
-randomColor() {
-  return Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
-}
+// randomColor() {
+//   return Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
+// }
+
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,39 +30,18 @@ class MyApp extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () {
-            print('pressed!');
+            setState(() {
+              count++;
+            });
           },
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Business',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                label: 'School',
-            ),
-          ],
-        ),
-        drawer: const Drawer(
-          child: Text('Yo!'),
-        ),
-        body: ListView.builder(
-          itemBuilder: (_, index) {
-            return Container(
-              color: randomColor(),
-              width: 500,
-              height: 500,
-            );
-          },
+        body: Center(
+          child: Text(
+            '$count',
+            style: const TextStyle(fontSize: 60),
+          ),
         ),
       ),
     );
   }
 }
-
