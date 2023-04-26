@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
+randomColor() {
+  return Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
+}
 void main() {
   runApp(const MyApp());
 }
@@ -40,28 +44,17 @@ class MyApp extends StatelessWidget {
         drawer: const Drawer(
           child: Text('Yo!'),
         ),
-        body: ListView(
-          scrollDirection: Axis.horizontal,
-          addAutomaticKeepAlives: false,
-          children: [
-            Container(
-              color: Colors.blue,
+        body: ListView.builder(
+          itemBuilder: (_, index) {
+            return Container(
+              color: randomColor(),
               width: 500,
               height: 500,
-            ),
-            Container(
-              color: Colors.orange,
-              width: 500,
-              height: 500,
-            ),
-            Container(
-              color: Colors.green,
-              width: 500,
-              height: 500,
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
   }
 }
+
