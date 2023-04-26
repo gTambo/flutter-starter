@@ -40,17 +40,25 @@ class MyApp extends StatelessWidget {
         drawer: const Drawer(
           child: Text('Yo!'),
         ),
-        body: Stack(
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          addAutomaticKeepAlives: false,
           children: [
             Container(
-              color: Colors.amber,
-              width: 100,
-              height: 100,
+              color: Colors.blue,
+              width: 500,
+              height: 500,
             ),
-            const Align(
-              alignment: Alignment.center,
-              child: Icon(Icons.verified),
-            )
+            Container(
+              color: Colors.orange,
+              width: 500,
+              height: 500,
+            ),
+            Container(
+              color: Colors.green,
+              width: 500,
+              height: 500,
+            ),
           ],
         ),
       ),
