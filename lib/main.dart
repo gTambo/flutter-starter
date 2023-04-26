@@ -15,9 +15,14 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.green,
           title: const Text('Flutter is fun!'),
           ),
-        body: Column(
+        body: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: const [
-                Icon(Icons.backpack),
+                Expanded(
+                  flex: 4,
+                  child: Icon(Icons.backpack),
+                ),
                 Icon(Icons.leaderboard),
                 Icon(Icons.abc),
               ],
