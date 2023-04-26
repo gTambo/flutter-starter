@@ -22,7 +22,10 @@ class MyApp extends StatelessWidget {
               width: 100,
               height: 100,
             ),
-            const Icon(Icons.verified)
+            const Align(
+              alignment: Alignment.center,
+              child: Icon(Icons.verified),
+            )
           ],
         ),
       ),
