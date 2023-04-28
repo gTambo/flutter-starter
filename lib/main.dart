@@ -24,18 +24,35 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.amber,
         title: const Text('Flutter is fun!'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Navigate'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => const AboutScreen(),
-              ),
-            );
-          },
-        ),
+      body: Column(
+        children: [
+          Center(
+            child: ElevatedButton(
+              child: const Text('Navigate'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const AboutScreen(),
+                  ),
+                );
+              },
+            ),
+          ),
+          Center(
+            child: ElevatedButton(
+              child: const Text('Counter page'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const MyApp(),
+                  ),
+                );
+              },
+            ),
+          )
+        ],
       ),
     );
   }
@@ -54,7 +71,7 @@ class AboutScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
-          }, 
+          },
           child: const Text('Go Back!'),
         ),
       ),
@@ -78,6 +95,13 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            color: Colors.pink,
+            tooltip: 'Go Heather!',
+            enableFeedback: true,
+            onPressed: () => Navigator.of(context).pop(),
+          ),
           title: const Text('Flutter is fun!'),
         ),
         floatingActionButton: FloatingActionButton(
